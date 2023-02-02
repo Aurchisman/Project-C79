@@ -190,6 +190,7 @@ export default class RideScreen extends Component {
       );
     }
     return (
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.upperContainer}>
           <Image source={appIcon} style={styles.appIcon} />
           <Text style={styles.title}>e-ride</Text>
@@ -199,7 +200,7 @@ export default class RideScreen extends Component {
           <View style={styles.textinputContainer}>
             <TextInput
               style={[styles.textinput, { width: "82%" }]}
-//Add the code to make TextInput editable for accepting userID
+              onChangeText={text => this.setState({ userId: text })}
               placeholder={"User Id"}
               placeholderTextColor={"#FFFFFF"}
               value={userId}
@@ -229,6 +230,7 @@ export default class RideScreen extends Component {
             </Text>
           </TouchableOpacity>
         </View>
+      </KeyboardAvoidingView>
     );
   }
 }
